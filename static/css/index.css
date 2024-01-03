@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("../fonts/JetBrainsMonoNerd.ttf") format("truetype");
+}
+
+
+body {
+    font-family: "JetBrains Mono", sans-serif;
+    background-color: rgb(38, 50, 61);
+    color: rgb(211, 223, 237);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+.flex-container {
+    flex: 1;
+}
+
+
+/* Action Dark (78, 165, 217) */
+/* Action Light (127, 239, 189) */
+
+select {
+    background-color: rgb(78, 165, 217);
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.25em;
+    text-align: center;
+    color: rgb(211, 223, 237);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+.header {
+    background-color: rgb(46, 62, 75);
+    text-align: center;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+
+.midder {
+    flex: 1;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+
+footer {
+    background-color: rgb(46, 62, 75);
+    text-align: center;
+    margin: 0;
+    padding: 0.75em;
+    min-width: 100vw;
+}
+
+
+.center {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+
+
+
+
+

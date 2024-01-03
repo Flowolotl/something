@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AI WebApp</title>
+        <link rel="stylesheet" href="../static/css/index.css">
+    </head>
+    <body class="flex-container">
+        <div class="header">
+            <h1 class="center">AI WebApp</h1>
+        </div>
+
+        <div class="midder">
+            <div>
+                <select id="selection">
+                    {% for o in names %}
+                    <option class="option" value="{{ o }}" {% if selection == o %} selected {% endif %}>{{ o }}</option>
+                    {% endfor %}
+                </select>
+                <button id="addCharacter">Add Character</button>
+    
+                <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+                        $('#selection').change(function () {
+                            var selection = $(this).val();
+    
+                            // Send data to Flask server using AJAX
+                            $.ajax({
+                                type: 'POST',
+                                url: '/data',
+                                data: {'selection': selection},
+                            });
+                        });
+                    });
+                </script>
+                <script>
+                    $(document).ready(function () {
+                        $('#addCharacter').click(function () {
+                            // Send a request to Flask to add a new character
+                            $.ajax({
+                                type: 'POST',
+                                url: '/add-char',
+                                success: function(response) {
+                                    // Reload the page to reflect the changes
+                                    location.reload();
+                                }
+                            });
+                        });
+                    });
+                </script>
+            </div>
+            {% for char in characters %}
+                <p>Character {{ loop.index }} {{ char.voice_name() }}</p>
+            {% endfor %}
+        </div>
+
+        <footer>
+            <p>Footer</p>
+        </footer>
+    </body>
+</html>
